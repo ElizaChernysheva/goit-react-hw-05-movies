@@ -1,0 +1,19 @@
+.homeList {
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(4,1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 0 40px 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homeError{
+  color: #8f0000;
+  font-size: 30px;
+  font-weight: 600;
+}

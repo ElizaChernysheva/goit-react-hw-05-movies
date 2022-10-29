@@ -1,0 +1,30 @@
+.header{
+  display: flex;
+  padding: 10px 50px;
+  align-items: center;
+  background-color: #c0a23f;
+}
+
+.nav{
+  display: flex;
+  margin-left: 50px;
+}
+
+.nav_link{
+  display: inline-block;
+  padding: 15px 0;
+  font-size: 25px;
+
+  text-decoration: none;
+  color: #dae4ed;
+}
+
+.nav_link:hover,
+.nav_link:focus{
+  color: aqua;
+}
+
+.nav_link:not(:last-child){
+  margin-right: 20px;
+}
+

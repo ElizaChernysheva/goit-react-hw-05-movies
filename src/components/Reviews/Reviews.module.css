@@ -1,0 +1,38 @@
+.reviewsError{
+  color: #8f0000;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.reviewsList{
+  text-align: left;
+  line-height: 1.5;
+}
+
+.reviewsItem{
+  padding: 20px;
+  background-color: #c0a23f;
+  border-radius: 10px;
+}
+
+.reviewsItem:not(:last-child){
+  margin-bottom: 30px;
+}
+
+.reviewsInfo{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.reviewsInfo span{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+.reviewsEmpty{
+  font-size: 50px;
+  font-weight: 600;
+  color: #c70909;
+  text-align: center;
+}

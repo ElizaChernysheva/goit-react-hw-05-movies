@@ -1,0 +1,31 @@
+.movieTitle{
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.cardWrapper{
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.cardInfo{
+  padding: 0 20px;
+}
+
+.cardTitle{
+  font-size: 30px;
+}
+
+.cardOverview{
+  line-height: 1.5;
+}
+
+.cardGenres, .cardScore{
+  font-size: 20px;
+}
+
+.cardNav{
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+}
