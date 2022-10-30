@@ -6,7 +6,7 @@ import css from './MovieCard.module.css';
 const MovieCard = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const location = useLocation();
   const goBack = location?.state?.from ?? '/';
 

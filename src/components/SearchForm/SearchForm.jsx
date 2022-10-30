@@ -16,7 +16,7 @@ const SearchForm = ({ onSubmit }) => {
 
   return (
     <div className={css.searchFormWrapper}>
-      <form className={css.searchForm} onSubmit={handleOnSubmit} autofocus autoComplete='off'>
+      <form className={css.searchForm} onSubmit={handleOnSubmit} autoFocus autoComplete='off'>
         <button className={css.searchFormButton} type='submit'>
           <span className={css.searchFormButtonLabel}>Search</span>
         </button>
