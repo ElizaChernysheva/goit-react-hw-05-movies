@@ -17,8 +17,7 @@ const Movies = () => {
   const handleOnSubmit = useCallback(
     (querySearch) => {
       setSearchParams({ query: querySearch });
-      // eslint-disable-next-line
-    }, [searchQuery],
+    }, [searchQuery, setSearchParams],
   );
 
   async function getMovies() {
