@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../services/api'
 import css from './Home.module.css'
-import {Loader} from '../../components/Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 import { MovieItem } from '../../components/MovieItem/MovieItem';
 
-export const Home = () => {
+const Home = () => {
   const [trendingMovies,setTrendingMovies] = useState([])
   const [error,setError] = useState(null)
   const [isLoading,setLoading] = useState(false);
@@ -39,3 +39,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

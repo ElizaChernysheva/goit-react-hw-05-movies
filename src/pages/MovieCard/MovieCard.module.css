@@ -1,31 +1,72 @@
-.movieTitle{
+.movieTitle {
   font-size: 35px;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
-.cardWrapper{
+.cardWrapper {
   display: flex;
   padding-bottom: 50px;
 }
 
-.cardInfo{
+.cardInfo {
   padding: 0 20px;
 }
 
-.cardTitle{
+.cardTitle {
   font-size: 30px;
 }
 
-.cardOverview{
+.cardImg {
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 0px rgb(18 9 37 / 75%);
+}
+
+.cardOverview {
   line-height: 1.5;
 }
 
-.cardGenres, .cardScore{
+.cardGenres, .cardScore {
   font-size: 20px;
 }
 
-.cardNav{
+.cardNav {
   display: flex;
   justify-content: space-evenly;
   font-size: 20px;
+}
+
+
+.cardBtnBack {
+  display: block;
+  font-weight: 600;
+  border: 3px solid #ac9b33;
+  width: 80px;
+  border-radius: 10px;
+  padding: 10px 0;
+  color: #000000;
+  transition: background-color 250ms linear, color 250ms linear;
+}
+
+.cardBtnBack:hover,
+.cardBtnBack:focus {
+  background-color: #ac9b33;
+  color: #ffffff;
+}
+
+
+.cardLink {
+  color: black;
+  font-weight: 600;
+  transition: color 250ms linear;
+}
+
+.cardLink:active {
+  color: #ac9b33;
+}
+
+
+.cardLink:hover,
+.cardLink:focus {
+  color: #ac9b33;
 }

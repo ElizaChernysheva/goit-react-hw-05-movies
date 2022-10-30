@@ -1,47 +1,57 @@
-import React, { useState,useCallback,useEffect } from 'react';
-import {SearchForm} from '../../components/SearchForm/SearchForm'
+import React, { useCallback, useEffect, useState } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import SearchForm from '../../components/SearchForm/SearchForm';
 import { searchMovies } from '../../services/api';
-import { Loader } from '../../components/Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 import css from './Movies.module.css';
-import { MovieItem } from '../../components/MovieItem/MovieItem';
+import MovieItem from '../../components/MovieItem/MovieItem';
 
-export const Movies = () => {
-  const [input,setInput] = useState('');
-  const [movies,setMovies] = useState([]);
-  const [error,setError] = useState(null)
-  const [isLoading,setLoading] = useState(false);
-
+const Movies = () => {
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query');
 
   const handleOnSubmit = useCallback(
-    (value) => {
-      setInput(value);
-    },[]
-  )
+    (querySearch) => {
+      setSearchParams({ query: querySearch });
+    }, [searchQuery],
+  );
 
-  async function getMovies(){
-    const movies = await searchMovies(input);
-    setMovies(movies)
+  async function getMovies() {
+    setLoading(true);
+    try {
+      const movies = await searchMovies(searchQuery);
+      setMovies(movies);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     (async () => {
-      if(!input){
+      if (!searchQuery) {
         return;
       }
-      await getMovies()
-    })()
-  },[input])
+      await getMovies();
+    })();
+    // eslint-disable-next-line
+  }, [searchQuery]);
 
   return (
     <div>
-    <SearchForm onSubmit={handleOnSubmit}/>
+      <SearchForm onSubmit={handleOnSubmit} />
       <main>
-        {isLoading && <Loader/>}
+        {isLoading && <Loader />}
         {error ?
           <p className={css.moviesError}>Something went wrong...Try again</p> :
           <ul className={css.moviesList}>
-            {movies.map(({id,title,poster_path}) =>(
-              <MovieItem key={id} id={id} title={title} poster_path={poster_path}/>
+            {movies.map(({ id, title, poster_path }) => (
+              <MovieItem key={id} id={id} title={title} state={{ from: location }} poster_path={poster_path} />
             ))}
           </ul>}
       </main>
@@ -49,3 +59,5 @@ export const Movies = () => {
   );
 };
 
+
+export default Movies;

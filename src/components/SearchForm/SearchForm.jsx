@@ -1,28 +1,28 @@
-import {useState} from 'react';
-import css from './SearchForm.module.css'
+import { useState } from 'react';
+import css from './SearchForm.module.css';
+import PropTypes from 'prop-types';
 
-export const SearchForm = ({onSubmit}) => {
-  const [input,setInput] = useState('')
+const SearchForm = ({ onSubmit }) => {
+  const [input, setInput] = useState('');
 
- function haldleOnChange(event){
-   setInput(event.target.value)
+  function haldleOnChange(event) {
+    setInput(event.target.value);
   }
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    onSubmit(input)
-  }
-
+    onSubmit(input);
+  };
 
   return (
     <div className={css.searchFormWrapper}>
-      <form className={css.searchForm}  onSubmit={handleOnSubmit}>
-        <button className={css.searchFormButton} type='submit' >
+      <form className={css.searchForm} onSubmit={handleOnSubmit} autofocus autoComplete='off'>
+        <button className={css.searchFormButton} type='submit'>
           <span className={css.searchFormButtonLabel}>Search</span>
         </button>
         <input className={css.searchFormInput}
                type='text'
-               name="input"
+               name='input'
                autoFocus
                required
                placeholder='Search films'
@@ -34,3 +34,9 @@ export const SearchForm = ({onSubmit}) => {
   );
 };
 
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export default SearchForm;

@@ -1,15 +1,17 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Header } from './Header/Header';
-import { Home } from '../pages/Home/Home'
-import {Movies} from '../pages/Movies/Movies'
-import {MovieCard} from '../pages/MovieCard/MovieCard'
-import {Cast} from './Cast/Cast';
-import {Reviews} from './Reviews/Reviews';
+const Header = lazy(() => import("./Header/Header"));
+const Home = lazy(() => import("pages/Home/Home"));
+const Movies = lazy(() => import("pages/Movies/Movies"));
+const MovieCard = lazy(() => import("pages/MovieCard/MovieCard"));
+const Cast = lazy(() => import("pages/Cast/Cast"));
+const Reviews = lazy(() => import("pages/Reviews/Reviews"));
 
 export const App = () => {
 
   return (
-    <>
+    <div>
+      <Suspense fallback=''>
       <Header/>
       <div className='container'>
         <Routes>
@@ -21,7 +23,7 @@ export const App = () => {
           </Route>
         </Routes>
       </div>
-    </>
-
+      </Suspense>
+    </div>
   );
 };

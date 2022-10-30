@@ -1,26 +1,7 @@
-searchbar {
-  top: 0;
-  left: 0;
-  position: sticky;
-  z-index: 1100;
+.searchFormWrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #fff;
-  background-color: #3f51b5;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-  0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-}
-
-.searchFormWrapper{
-  display: flex;
-  justify-content: center;
- padding: 20px 0;
+  padding: 20px 0;
 }
 
 .searchForm {
@@ -28,10 +9,13 @@ searchbar {
   align-items: center;
   width: 100%;
   max-width: 600px;
-  /*background-color: #e5e5e5;*/
   border-radius: 3px;
   overflow: hidden;
-  border: 2px solid black;
+  border: 2px solid #ac9b33;
+  outline: none;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+  0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
 }
 
 .searchFormButton {
@@ -48,6 +32,7 @@ searchbar {
   cursor: pointer;
   outline: none;
 }
+
 
 .searchForm-button:hover {
   opacity: 1;
@@ -77,7 +62,3 @@ searchbar {
   background-color: #f5f5cd;
 }
 
-.searchForm-input::placeholder {
-  font: inherit;
-  font-size: 18px;
-}

@@ -1,37 +1,38 @@
-import React, {useState,useEffect} from 'react';
-import { useParams} from 'react-router-dom';
-import { NavLink, Outlet } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from '../../services/api';
-import css from './MovieCard.module.css'
+import css from './MovieCard.module.css';
 
+const MovieCard = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState({});
+  const [error, setError] = useState(null);
+  const location = useLocation();
+  const goBack = location?.state?.from ?? '/';
 
-
-export const MovieCard = () => {
-const {id} = useParams();
-const [movie,setMovie] = useState({})
-const [error,setError] = useState(null)
-
-  async function getMovie(){
+  async function getMovie() {
     try {
       const movieDetails = await getMovieDetails(id);
-      setMovie(movieDetails)
-    }catch (error){
-      setError(error)
+      setMovie(movieDetails);
+    } catch (error) {
+      setError(error);
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     (async () => {
-      await getMovie()
-    })()
-  },[])
+      await getMovie();
+    })();
+    // eslint-disable-next-line
+  }, []);
 
-  const {poster_path,title,genres=[],overview,vote_average=0} = movie;
+  const { poster_path, title, genres = [], overview, vote_average = 0 } = movie;
   return (
     <>
+      <NavLink className={css.cardBtnBack} to={goBack}>Go back</NavLink>
       <h2 className={css.movieTitle}>{title}</h2>
       <div className={css.cardWrapper}>
-        <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title}/>
+        <img className={css.cardImg} src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title} />
         <div className={css.cardInfo}>
           <h3 className={css.cardTitle}>Overview </h3>
           <p className={css.cardOverview}>{overview}</p>
@@ -45,15 +46,18 @@ const [error,setError] = useState(null)
           <h3 className={css.cardTitle}>Additional information</h3>
           <ul className={css.cardNav}>
             <li>
-              <NavLink to="cast">Cast</NavLink>
+              <NavLink className={css.cardLink} to='cast'>Cast</NavLink>
             </li>
             <li>
-              <NavLink to="reviews">Reviews</NavLink>
+              <NavLink className={css.cardLink} to='reviews'>Reviews</NavLink>
             </li>
           </ul>
         </div>
       </div>
-      <Outlet/>
+      <Outlet />
     </>
   );
 };
+
+
+export default MovieCard;

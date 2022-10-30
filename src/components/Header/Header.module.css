@@ -1,30 +1,32 @@
-.header{
+.header {
   display: flex;
   padding: 10px 50px;
   align-items: center;
   background-color: #c0a23f;
 }
 
-.nav{
+.nav {
   display: flex;
   margin-left: 50px;
 }
 
-.nav_link{
+.nav_link {
   display: inline-block;
   padding: 15px 0;
   font-size: 25px;
-
+  font-weight: 600;
   text-decoration: none;
   color: #dae4ed;
+  transition: color 250ms linear;
 }
 
 .nav_link:hover,
-.nav_link:focus{
-  color: aqua;
+.nav_link:focus,
+.nav_link:active {
+  color: #000000;
 }
 
-.nav_link:not(:last-child){
+.nav_link:not(:last-child) {
   margin-right: 20px;
 }
 

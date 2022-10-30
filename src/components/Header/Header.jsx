@@ -1,19 +1,24 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import css from './Header.module.css'
-import film from '../../assets/imgs/film(1).png'
+import css from './Header.module.css';
+import film from '../../assets/imgs/film(1).png';
 
-export const Header = () =>{
-  return(
+const Header = () => {
+  return (
     <>
       <header className={css.header}>
-        <img src={film} width='50' height='50'/>
+        <NavLink className={css.nav_link} to='/'>
+          <img src={film} width='50' height='50' alt='logo' />
+        </NavLink>
+
         <nav className={css.nav}>
-          <NavLink className={css.nav_link} to="/">Home</NavLink>
-          <NavLink className={css.nav_link} to="/movies">Movies</NavLink>
+          <NavLink className={css.nav_link} to='/'>Home</NavLink>
+          <NavLink className={css.nav_link} to='/movies'>Movies</NavLink>
         </nav>
       </header>
-      <Outlet/>
+      <Outlet />
     </>
-  )
-}
+  );
+};
+
+export default Header;
