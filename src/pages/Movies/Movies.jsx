@@ -17,7 +17,7 @@ const Movies = () => {
   const handleOnSubmit = useCallback(
     (querySearch) => {
       setSearchParams({ query: querySearch });
-    }, [searchQuery, setSearchParams],
+    }, [setSearchParams],
   );
 
   async function getMovies() {
